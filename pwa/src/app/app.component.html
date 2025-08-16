@@ -1,0 +1,26 @@
+<header>
+  <mat-toolbar color="primary" class="sticky-toolbar">
+
+    <mat-toolbar-row>
+
+
+      <ng-container *ngIf="(naviService.currentPageNaviData$ | async) as naviData">
+        <button *ngIf="naviData.showReturnIcon" mat-icon-button (click)="back()" aria-label="back to home button">
+          <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+
+        <img *ngIf="naviData.showLogo" ngSrc="./assets/icons/icon-128x128.png" alt="buplana Logo" title="buplana logo" class="logo"
+             height="128" width="128">
+        <span>{{ naviData.pageTitle }}</span>
+      </ng-container>
+
+      <span class="example-spacer"></span>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+</header>
+
+<main class="content">
+  <router-outlet></router-outlet>
+</main>
